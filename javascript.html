@@ -16,6 +16,7 @@
             <li>
               <a href="study_guides.html">Study Guides</a>
             </li>
+            <li>
               <a href="#">About</a>
             </li>
           </ul>
@@ -116,12 +117,20 @@
         <p>The action of converting a primitive JavaScript value into a value of a different type is called a coercion or a conversion.  Keep in mind that in JavaScript primitives are immutable, so JavaScript does not actually convert values.  Instead, it returns a new value of the proper type.</p>
         <h3>Explicit Conversion</h3>
         <h4>Strings to Numbers</h4>
-        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><code>Number()</code></a> function can be used to convert Strings that contain a Numeric value into a Number</p>
-        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank"><code>parseInt()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank"><code>parseFloat()</code></a> global functions turn Strings to Numbers, with each only handling numeric values in an integer or floating point format.</p>
+        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><code>Number()</code></a> function can be used to convert Strings that contain a Numeric value into a Number.  The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank"><code>parseInt()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank"><code>parseFloat()</code></a> global functions turn Strings to Numbers, with each only handling numeric values in an integer or floating point format.</p>
+        <div class="code_sample">
+          <pre>Number('1');          // 1</pre>
+          <pre>Number('abc');        // NaN</pre>
+          <pre>parseInt('123');      // 123</pre>
+          <pre>parseInt('123.12');   // 123 - will only return whole numbers</pre>
+          <pre>parseFloat('123.12'); // 123.12 - can handle floating point values</pre>
+        </div>
         <h4>Numbers to Strings</h4>
         <p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><code>String()</code></a> function to convert numbers in to strings.  You can also use call the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toString" target="_blank"><code>toString()</code></a> method on numbers.</p>
         <p>You can also convert a Number to a String using the <code>+</code> operator to "add" it to a String.  However, this code does not make its intent very clear and it is not recommended.</p>
-        <p><code>123 + '';</code> // "123"</p>
+        <div class="code_sample">
+          <pre>123 + ''; // "123"</pre>
+        </div>
         <h3>Implicit Conversions</h3>
         <h3>Best Practices</h3>
         <a href="#top">Back to Top</a>
