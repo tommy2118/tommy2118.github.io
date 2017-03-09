@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JavaScript Study Guide</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="stylesheets/guide.css" >
+  </head>
+    <body>
+      <header>
+        <h1>Launch School Study Guides</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+      <a name="top"></a>
+      <h1>JavaScript Study Guide - Course 210</h1>
+      <ul>
+        <li>
+          <a href="#primitive_values">Primitive Values</a>
+        </li>
+        <li>
+          <a href="#types">JavaScript Types</a>
+        </li>
+        <li>
+          <a href="#conversion">JavaScript Type Conversions</a>
+        </li>
+        <li>
+          <a href="#variable_scope">Variable Scopes</a>
+        </li>
+        <li>
+          <a href="#hoisting">Hoisting</a>
+        </li>
+        <li>
+          <a href="#declarations">Function Declarations</a>
+        </li>
+        <li>
+          <a href="#expressions">Expressions</a>
+        </li>
+        <li>
+          <a href="#function_scope">Function Scopes</a>
+        </li>
+        <li>
+          <a href="#object_prop">Object Properties</a>
+        </li>
+        <li>
+          <a href="#object_mutation">Object Mutation</a>
+        </li>
+        <li>
+          <a href="#assignments">Assignments</a>
+        </li>
+        <li>
+          <a href="#comparison">Comparison</a>
+        </li>
+        <li>
+          <a href="#pure_functions">Pure Functions</a>
+        </li>
+        <li>
+          <a href="#side_effects">Side Effects</a>
+        </li>
+      </ul>
+      <div class="topic">
+        <a name="primitive_values"></a>
+        <h2>JavaScript Primitive Values</h2>
+        <p>A primitive(primitive value, primitive data type) is data that is not an Object and has no methods.  In JavaScript, there are six primitive data types: String, Number, Boolean, <code>null</code>, <code>undefined</code>, and Symbol (added in ECMAScript 2015)</p>
+        <p>All primitives are immutable(cannot be changed)</p>
+        <p>Most of the time a primitive value is represented directly at the lowest level of the language implementation.</p>
+        <p>Except for <code>null</code> and <code>undefined</code>, all primitive values have object equivalents that wrap around the primitive values:</p>
+        <ul>
+          <li>String for the string primitive</li>
+          <li>Number for the number primitive</li>
+          <li>Boolean for the Boolean primitive</li>
+          <li>Symbol for the symbol primitive</li>
+        </ul>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="types"></a>
+        <h2>JavaScript Types</h2>
+        <p>JavaScript is a dynamic language.  Another way of saying this is that It is loosely typed.  This means that you do not have to define a variable's type when you declare it.  It also means that you can reassign a variable to a different type.</p>
+        <p>There are seven data types under the current ECMAScript Standard:</p>
+        <ul>
+          <li>Six that are primitives:</li>
+          <ul>
+            <li>Boolean - <code>true / false</code></li>
+            <li>Null - <code>null</code> only type</li>
+            <li>Undefined - unassigned variable</li>
+            <li>Number - double-precision 64-bit binary format</li>
+            <li>String - textual data</li>
+            <li>Symbol - unique - usually used as key of object property</li>
+          </ul>
+          <li>and one compound data type:</li>
+          <ul>
+            <li>Object</li>
+            <ul>
+              <li>Collection of properties</li>
+              <li>Key/value pairs</li>
+              <li>Key can be a string or a symbol</li>
+            </ul>
+          </ul>
+        </ul>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="conversion"></a>
+        <h2>JavaScript Type Conversions</h2>
+        <p>The action of converting a primitive JavaScript value into a value of a different type is called a coercion or a conversion.  Keep in mind that in JavaScript primitives are immutable, so JavaScript does not actually convert values.  Instead, it returns a new value of the proper type.</p>
+        <h3>Explicit Conversion</h3>
+        <h4>Strings to Numbers</h4>
+        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><code>Number()</code></a> function can be used to convert Strings that contain a Numeric value into a Number</p>
+        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank"><code>parseInt()</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" target="_blank"><code>parseFloat()</code></a> global functions turn Strings to Numbers, with each only handling numeric values in an integer or floating point format.</p>
+        <h4>Numbers to Strings</h4>
+        <p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><code>String()</code></a> function to convert numbers in to strings.  You can also use call the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toString" target="_blank"><code>toString()</code></a> method on numbers.</p>
+        <h3>Implicit Conversions</h3>
+        <h3>Best Practices</h3>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="variable_scope"></a>
+        <h2>Variable Scopes</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="hoisting"></a>
+        <h2>Hoisting</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="declarations"></a>
+        <h2>Function Declarations</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="expressions"></a>
+        <h2>Expressions</h2>
+        <p>An expression is any valid code that resolves to a value.  An expression can appear anywhere that JavaScript expects or allows a value</p>
+        <p>The most common expression types are:</p>
+        <ul>
+          <li>Arithmetic - evaluates to a number</li>
+          <li>String - evaluates to a character string</li>
+          <li>Logical - evaluates to <code>true</code> or <code>false</code></li>
+        </ul>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="function_scope"></a>
+        <h2>Function Scopes</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="object_prop"></a>
+        <h2>Object Properties</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="object_mutation"></a>
+        <h2>Object Mutation</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="assignments"></a>
+        <h2>Assignment</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="comparison"></a>
+        <h2>Comparison</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="pure_functions"></a>
+        <h2>Pure Functions</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      <div class="topic">
+        <a name="side_effects"></a>
+        <h2>Side Effects</h2>
+        <a href="#top">Back to Top</a>
+      </div>
+      </main>
+    </body>
+</html>
