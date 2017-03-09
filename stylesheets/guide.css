@@ -70,3 +70,7 @@ main p {
 .topic li {
   padding: 5px 0;
 }
+
+.topic h3, .topic h4 {
+  padding: 0 0 15px 0;
+}
