@@ -129,7 +129,40 @@
         <p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><code>String()</code></a> function to convert numbers in to strings.  You can also use call the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toString" target="_blank"><code>toString()</code></a> method on numbers.</p>
         <p>You can also convert a Number to a String using the <code>+</code> operator to "add" it to a String.  However, this code does not make its intent very clear and it is not recommended.</p>
         <div class="code_sample">
-          <pre>123 + ''; // "123"</pre>
+          <pre>String(123);         // "123"</pre>
+          <pre>String(1.23);        // "1.23"</pre>
+          <pre>(123).toString();    // "123"</pre>
+          <pre>(123.12).toString(); // "123.12"</pre>
+          <pre>123 + '';            // "123"</pre>
+        </div>
+        <h4>Primitives to Boolean</h4>
+        <p>If you have a String representation of a boolean you can compare it with the string <code>'true'</code>.</p>
+        <div class="code_sample">
+        <pre>var = 'true';
+var = 'false';
+
+a === 'true';  // true
+b === 'true';  // false</pre>
+        </div>
+        <p>You can also use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><code>Boolean()</code></a> function to explicitly convert a value to a Boolean. In JavaScript the following values convert to false:</p>
+        <ul>
+          <li><code>null</code></li>
+          <li><code>NaN</code></li>
+          <li><code>0</code></li>
+          <li><code>false</code></li>
+          <li><code>''</code></li>
+          <li><code>undefined</code></li>
+        </ul>
+        <p>All other values will covert to true.</p>
+        <div class="code_sample">
+          <pre>Boolean(null);             // false</pre>
+          <pre>Boolean(NaN);              // false</pre>
+          <pre>Boolean('Hello, World!');  // true</pre>
+        </div>
+        <p>Finally, The double <code>!</code> operator can be used to coerce a truthy or falsy value to its boolean equivalent.</p>
+        <div class="code_sample">
+          <pre>!!(null);   // false</pre>
+          <pre>!!('abc');  // true</pre>
         </div>
         <h3>Implicit Conversions</h3>
         <h3>Best Practices</h3>
