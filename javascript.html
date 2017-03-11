@@ -164,9 +164,30 @@ b === 'true';  // false</pre>
           <pre>!!(null);   // false</pre>
           <pre>!!('abc');  // true</pre>
         </div>
-        <h3>Implicit Conversions</h3>
-        <h3>Best Practices</h3>
-        <a href="#top">Back to Top</a>
+      </div>
+      <h3>Implicit Conversions</h3>
+      <p>JavaScript has a number of implicit primitive type coercions.  These implicit conversions are not always the most resonable and can be the source of bugs in your programs.  It is best to not rely on the implicit conversions and use explicit conversions when needed.  As a JavaScript developer you should know what the implicit conversions are so you have a better understanding of what the language is doing when it comes to troubleshooting and working with legacy code.</p>
+      <h4>The (<code>+</code>) operator</h4>
+      <p>When using the <code>+</code> operator with one operand (unary), it tries to convert values into Numbers.</p>
+      <div class="code_sample">
+        <pre>+('123');  // 123</pre>
+        <pre>+('');     // 0</pre>
+        <pre>+(null);   // 0</pre>
+        <pre>+('a');    // NaN</pre>
+      </div>
+      <p>The binary <code>+</code> operator (two oprands) means either addition for Numbers or concatenation for Strings.  When <code>+</code> is used with mixed operands that include a string, JavaScript tries to convert the other operand to a string as well.</p>
+      <div class="code_sample">
+        <pre>123 + '123'  // "123123"</pre>
+        <pre>'a' + null   // "anull"</pre>
+      </div>
+      <p>The other arithmetic operators are only defined for Numbers, so JavaScript tries to coerce both operands into Numbers.</p>
+      <h4>Relational Operators</h4>
+      <p>The relational operators are defined for Numbers and Strings.  Unless both operands are strings, JavaScript will try to do a number comparison.</p>
+      <h4>Equality Operators</h4>
+      <p>The non-strict equality operators have a complex set of rules to coerce types prior to comparing them.  The strict operators never perform any sort of conversion.</p>
+      <h3>Best Practices</h3>
+      <p>Always use explicit type conversion and strict equality operators.  Do not rely on JavaScript's implicit conversions.</p>
+      <a href="#top">Back to Top</a>
       </div>
       <div class="topic">
         <a name="variable_scope"></a>
