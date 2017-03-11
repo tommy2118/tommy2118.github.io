@@ -192,6 +192,11 @@ b === 'true';  // false</pre>
       <div class="topic">
         <a name="variable_scope"></a>
         <h2>Variable Scopes</h2>
+        <p>A variable's scope is the portion of the program that can access that variable by name.  In JavaScript, every function creates a new variable scope.  When JavaScript tries to find a variable, it searches this hierarchy from the bottom to the top.  It returns the first variable it finds with a matching name and stops searching.</p>
+        <p>With this searching order in mind, it is possiable for a variable in a lower scope to hide or <em>shadow</em> a variable with the same name in a higher scope.</p>
+        <p>Also note, during variable assignment, if the variable name does not exist, JavaScript creates the variable in the global scope.</p>
+        <h3>Closures</h3>
+        <p>A closure retains references to everything that is in scope when the closure is created and retains those references for as long as the closure exists.</p>
         <a href="#top">Back to Top</a>
       </div>
       <div class="topic">
