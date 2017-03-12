@@ -202,6 +202,12 @@ b === 'true';  // false</pre>
       <div class="topic">
         <a name="hoisting"></a>
         <h2>Hoisting</h2>
+        <p>Declaring a variable anywhere in a scope is the equivalent to declaring it at the top of the scope.  This is because JavaScript processes variable declarations before it executes any code within a scope.  This is called hoisting.</p>
+        <p>It is important to note that JavaScript only hoists the variable declaration.  When you have a variable declaration with a variable assignment, JavaScript only hoists the declaration and leaves the assignment.</p>
+        <p>JavaScript also hoists Function declarations to the top of the scope.  The major difference between Funtion and variable declarations is that JavaScript hoists the entire Function declaration, including the body of the function.</p>
+        <p>When a function is assigned to a variable, like in the case of a function expression,  JavaScript treats it like a variable declaration.</p>
+        <h3>Best Practices</h3>
+        <p>Declaring variables at the top of their scope and declaring functions before calling them, will reduce confusion and prevent hard to find bugs.</p>
         <a href="#top">Back to Top</a>
       </div>
       <div class="topic">
