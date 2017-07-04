@@ -37,7 +37,8 @@ main {
 }
 
 img {
-  width: 600px;
+  max-height: 420px;
+  width: auto;
 }
 
 main h1 {
@@ -91,4 +92,19 @@ main p {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
+}
+
+aside {
+  height: 420px;
+  background-color: grey;
+  float: right;
+}
+
+aside li {
+  padding: 10px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
 }
