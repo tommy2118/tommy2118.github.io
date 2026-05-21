@@ -47,14 +47,14 @@
     .site-header .role {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
     .site-header .role span { color: var(--text); font-weight: 500; }
 
     /* ── ABOUT ── */
     .about-block {
-      max-width: 680px;
-      margin: 0 auto;
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
       font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.75;
@@ -62,6 +62,21 @@
     }
     .about-block p + p { margin-top: 0.75rem; }
     .about-block strong { color: var(--text); font-weight: 600; }
+    .about-block .about-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--accent-dim);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.3rem 0.75rem;
+      transition: border-color 0.15s;
+    }
+    .about-block .about-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
 
     /* ── NAV ── */
     .site-nav {
@@ -83,6 +98,11 @@
       white-space: nowrap;
     }
     .site-nav a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .site-nav a.about-nav {
+      color: var(--text);
+      border-color: var(--accent-dim);
+    }
+    .site-nav a.about-nav:hover { border-color: var(--accent); }
 
     /* ── LAYOUT ── */
     main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem; }
@@ -203,13 +223,15 @@
       <a href="https://github.com/tommy2118">github.com/tommy2118</a>
     </p>
     <div class="about-block">
-      <p>I build primarily in <strong>Ruby and Rails</strong>, and I care about outcomes: clear intent, maintainable design, and systems that get cheaper to change over time. I lead engineering teams and show up as a right hand when leaders need one&mdash;spot bottlenecks before they become fires, leave things calmer than I found them.</p>
-      <p>My <strong>Air Force background</strong> shaped how I work: deliberate over fast, judgment over instinct, and always know your risk profile. Speed handle for flight-critical systems. Power tools for throwing pots.</p>
+      <p>I build primarily in <strong>Ruby and Rails</strong>. I care about outcomes: clear intent, maintainable design, systems that get cheaper to change over time. I lead engineering teams and show up as a right hand when leaders need one&mdash;spot bottlenecks before they become fires, leave things calmer than I found them.</p>
+      <p>My <strong>Air Force background</strong> shaped how I work: deliberate over fast, judgment over instinct, train how you fight. The through-line across everything here is <strong>reproducible craft</strong>&mdash;knowledge that survives transmission, speed earned through doctrine, not stolen from quality.</p>
       <p>The building and the writing are the same impulse. Different substrates.</p>
+      <a href="/about.html" class="about-link">What I&rsquo;m for &rarr;</a>
     </div>
   </header>
 
   <nav class="site-nav">
+    <a href="/about.html" class="about-nav">About</a>
     <a href="#doctrine">Doctrine</a>
     <a href="#writings">Writings</a>
     <a href="#stories">Stories</a>
@@ -226,12 +248,12 @@
     <section id="doctrine">
       <div class="section-header">
         <h2>&#9881; Doctrine &amp; Reference</h2>
-        <span class="section-desc">Field manuals. The affirmative vision made explicit.</span>
+        <span class="section-desc">Craft that survives transmission.</span>
       </div>
 
       <div class="featured">
-        <div class="featured-title"><a href="https://engineers-manual.com" target="_blank">The Engineer's Manual</a></div>
-        <div class="featured-desc">A field reference for software engineers: scoping work, debugging methodology, collaboration, architecture vs. design decisions, and learning practices. Synthesizes practical wisdom from books, mentors, and hard-won lessons. Military format and voice&mdash;on purpose.</div>
+        <div class="featured-title"><a href="https://engineers-manual.com" target="_blank">The Engineer&rsquo;s Manual</a></div>
+        <div class="featured-desc">A field reference for software engineers: scoping work, debugging methodology, collaboration, architecture vs. design decisions, and learning practices. Synthesizes practical wisdom from books, mentors, and hard-won lessons. Every entry survived stress-testing. Military format and voice&mdash;on purpose.</div>
         <div class="featured-url">engineers-manual.com</div>
         <div class="featured-meta">
           <span class="tag tag-reference">Field Manual</span>
@@ -244,13 +266,13 @@
 
         <div class="card">
           <div class="card-title"><a href="https://github.com/tommy2118/mcp-server-security-spec" target="_blank">MCP Server Security Spec</a></div>
-          <div class="card-desc">An opinionated specification for building sound, safe, and secure MCP servers.</div>
+          <div class="card-desc">An opinionated specification for building sound, safe, and secure MCP servers. Having a view beats &ldquo;it depends.&rdquo;</div>
           <div class="card-meta"><span class="tag tag-spec">Spec</span></div>
         </div>
 
         <div class="card">
           <div class="card-title"><a href="https://github.com/tommy2118/static_site_spec" target="_blank">Static Site Spec</a></div>
-          <div class="card-desc">Canonical spec for building static websites with Eleventy, Tailwind CSS 4, and Stimulus. MIT licensed.</div>
+          <div class="card-desc">Canonical spec for building static websites with Eleventy, Tailwind CSS 4, and Stimulus. Scaffolding shouldn&rsquo;t be an act of memory. MIT licensed.</div>
           <div class="card-meta"><span class="tag tag-spec">Spec</span> <span class="dot dot-njk"></span> Nunjucks &middot; MIT</div>
         </div>
 
@@ -262,7 +284,7 @@
 
         <div class="card">
           <div class="card-title"><a href="https://tommy2118.github.io/lippitt-knoster/" target="_blank">Lippitt-Knoster Model</a></div>
-          <div class="card-desc">Interactive reference for the Lippitt-Knoster model of managing complex change.</div>
+          <div class="card-desc">Interactive reference for the Lippitt-Knoster model of managing complex change. Know what&rsquo;s load-bearing before you start pulling.</div>
           <div class="card-meta"><span class="tag tag-reference">Reference</span> <span class="dot dot-html"></span> HTML</div>
         </div>
 
@@ -309,12 +331,12 @@
     <section id="stories">
       <div class="section-header">
         <h2>&#9654; Stories &amp; Interactive</h2>
-        <span class="section-desc">Narrative work with a software architecture underneath.</span>
+        <span class="section-desc">Narrative with architecture underneath. Continuity is a design constraint.</span>
       </div>
 
       <div class="featured">
         <div class="featured-title"><a href="https://nightloom-stories.com" target="_blank">Nightloom Stories</a></div>
-        <div class="featured-desc">Nightly serialized AI fiction where reader signals shape pacing and tone, while a story bible and quality gates protect the narrative. No retcons. No character drift. Every chapter remembers what came before.</div>
+        <div class="featured-desc">Nightly serialized AI fiction where reader signals shape pacing and tone, while a story bible and quality gates protect the narrative. No retcons. No character drift. Every chapter remembers what came before. Reproducible craft applied to storytelling.</div>
         <div class="featured-url">nightloom-stories.com</div>
         <div class="featured-meta">
           <span class="tag tag-story">Serial Fiction</span>
@@ -331,8 +353,8 @@
         </div>
 
         <div class="card">
-          <div class="card-title"><a href="https://tommy2118.github.io/seans-checklists/" target="_blank">Sean's Checklists</a></div>
-          <div class="card-desc">Daily morning/evening checklist for Sean.</div>
+          <div class="card-title"><a href="https://tommy2118.github.io/seans-checklists/" target="_blank">Sean&rsquo;s Checklists</a></div>
+          <div class="card-desc">Daily morning/evening checklist for Sean. Compress competence into something a person can actually receive.</div>
           <div class="card-meta"><span class="tag tag-app">Tool</span> <span class="dot dot-html"></span> HTML</div>
         </div>
 
@@ -343,7 +365,7 @@
     <section id="tools">
       <div class="section-header">
         <h2>&#128296; Tools &amp; Open Source</h2>
-        <span class="section-desc">Things built to stop doing the same manual work twice.</span>
+        <span class="section-desc">Automate the work that should not be manual. If you reach for the adjustable wrench twice on the same task, that&rsquo;s a smell.</span>
       </div>
 
       <div class="grid">
@@ -356,7 +378,7 @@
 
         <div class="card">
           <div class="card-title"><a href="https://github.com/tommy2118/rails-migration-guard" target="_blank">Rails Migration Guard</a></div>
-          <div class="card-desc">Prevent orphaned Rails migrations in development and staging environments.</div>
+          <div class="card-desc">Prevent orphaned Rails migrations in development and staging environments. Put it in CI and stop checking by hand.</div>
           <div class="card-meta"><span class="tag tag-tool">Gem</span> <span class="dot dot-ruby"></span> Ruby &middot; MIT</div>
         </div>
 
@@ -384,7 +406,7 @@
 
       <div class="featured">
         <div class="featured-title"><a href="https://vetmgmedia.com" target="_blank">VetMG Media LLC</a></div>
-        <div class="featured-desc">We make contractors financing-ready. Most residential contractors lose high-ticket jobs because they don&rsquo;t qualify for customer financing programs&mdash;lenders require a professional web presence. VetMG builds financing-ready websites that meet lender requirements, and you own them outright. No subscriptions. No lock-in. Veteran-owned. Contractor-focused.</div>
+        <div class="featured-desc">We make contractors financing-ready. Most residential contractors lose high-ticket jobs because they don&rsquo;t qualify for customer financing programs&mdash;lenders require a professional web presence. VetMG builds financing-ready websites they own outright. No subscriptions. No lock-in. Veteran-owned. Contractor-focused.</div>
         <div class="featured-url">vetmgmedia.com</div>
         <div class="featured-meta">
           <span class="tag tag-app">Veteran-Owned Business</span>
@@ -395,14 +417,14 @@
       <div class="grid">
 
         <div class="card">
-          <div class="card-title"><a href="https://engineers-manual.com" target="_blank">The Engineer's Manual</a></div>
-          <div class="card-desc">A field reference for software engineers. Military format and voice, on purpose. Published under VetMG.</div>
+          <div class="card-title"><a href="https://engineers-manual.com" target="_blank">The Engineer&rsquo;s Manual</a></div>
+          <div class="card-desc">A field reference for software engineers. What veterans know shouldn&rsquo;t die with them. Military format and voice, on purpose. Published under VetMG.</div>
           <div class="card-meta"><span class="tag tag-reference">Field Manual</span> <span class="dot dot-njk"></span> Eleventy</div>
         </div>
 
         <div class="card">
           <div class="card-title"><a href="https://github.com/tommy2118/the_dbt_resource" target="_blank">The DBT Resource</a></div>
-          <div class="card-desc">Open-source platform making Dialectical Behavior Therapy skills accessible: emotional regulation, mindfulness, interpersonal effectiveness, distress tolerance. Not a portfolio piece.</div>
+          <div class="card-desc">Open-source platform making Dialectical Behavior Therapy skills accessible. Emotional regulation, mindfulness, interpersonal effectiveness, distress tolerance. Not a portfolio piece.</div>
           <div class="card-meta"><span class="tag tag-app">Wellness</span> <span class="dot dot-html"></span> HTML &middot; Open Source</div>
         </div>
 
@@ -537,7 +559,7 @@
     <section id="learning">
       <div class="section-header">
         <h2>&#127891; Learning &amp; Exercises</h2>
-        <span class="section-desc">The work you do before the work matters.</span>
+        <span class="section-desc">The work you do before the work matters. Train how you fight.</span>
       </div>
 
       <div class="grid">
@@ -550,7 +572,7 @@
 
         <div class="card">
           <div class="card-title"><a href="https://github.com/tommy2118/game_of_life" target="_blank">Game of Life</a></div>
-          <div class="card-desc">Conway's Game of Life in Ruby.</div>
+          <div class="card-desc">Conway&rsquo;s Game of Life in Ruby.</div>
           <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="dot dot-ruby"></span> Ruby</div>
         </div>
 
@@ -562,7 +584,7 @@
 
         <div class="card">
           <div class="card-title"><a href="https://github.com/tommy2118/scratch" target="_blank">Scratch</a></div>
-          <div class="card-desc">General scratch pad and experiments. MIT licensed.</div>
+          <div class="card-desc">General scratch pad and experiments. Throw a pot. MIT licensed.</div>
           <div class="card-meta"><span class="tag tag-tool">Experiments</span> <span class="dot dot-ruby"></span> Ruby</div>
         </div>
 
@@ -592,9 +614,10 @@
   <footer>
     <div>Tommy A. Caruso &middot; Louisville, KY</div>
     <div>
+      <a href="/about.html">About</a> &middot;
       <a href="https://github.com/tommy2118">GitHub</a> &middot;
       <a href="https://linkedin.com/in/tommycaruso">LinkedIn</a> &middot;
-      <a href="https://engineers-manual.com">The Engineer's Manual</a>
+      <a href="https://engineers-manual.com">The Engineer&rsquo;s Manual</a>
     </div>
   </footer>
 
