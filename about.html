@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About &mdash; Tommy A. Caruso</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --dim: #1f6feb;
+      --green: #3fb950;
+      --purple: #bc8cff;
+      --orange: #f78166;
+      --yellow: #e3b341;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .site-header .name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .site-header .name a { color: var(--text); }
+    .site-header .name a:hover { color: var(--accent); text-decoration: none; }
+    .site-header nav { display: flex; gap: 1.25rem; font-size: 0.85rem; }
+    .site-header nav a { color: var(--muted); }
+    .site-header nav a:hover { color: var(--accent); text-decoration: none; }
+    .site-header nav a.active { color: var(--text); font-weight: 600; }
+
+    .hero {
+      max-width: 720px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .hero .lede {
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      border-left: 3px solid var(--dim);
+      padding-left: 1.25rem;
+    }
+    .hero .lede strong { color: var(--text); }
+
+    article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .section {
+      margin-bottom: 3.5rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .section p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    .section p:last-child { margin-bottom: 0; }
+    .section p strong { color: var(--text); font-weight: 600; }
+    .section p em { color: var(--text); font-style: normal; font-weight: 500; }
+
+    .pull {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      border-left: 3px solid var(--yellow);
+      padding: 0.75rem 1.25rem;
+      margin: 1.75rem 0;
+      line-height: 1.6;
+    }
+
+    .principles {
+      display: grid;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .principle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.875rem 1.1rem;
+    }
+    .principle .p-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    .principle .p-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .principle .p-text strong { color: var(--text); }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .synthesis {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+    }
+    .synthesis h3 {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .synthesis ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .synthesis li {
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .synthesis li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--border);
+    }
+    .synthesis li strong { color: var(--text); }
+
+    .coda {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      border-top: 1px solid var(--border);
+      line-height: 2;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 0 1rem; margin-top: 2.5rem; }
+      article { padding: 0 1rem 4rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .synthesis { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="name"><a href="/">Tommy A. Caruso</a></div>
+    <nav>
+      <a href="/">Work</a>
+      <a href="/about.html" class="active">About</a>
+      <a href="https://engineers-manual.com" target="_blank">Manual</a>
+      <a href="https://github.com/tommy2118" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>What I&rsquo;m for.</h1>
+    <p class="lede">
+      <strong>Reproducible craft at thought-speed, carried by people who know themselves well enough to train how they fight.</strong>
+      That sentence does a lot of work. This page unpacks it.
+    </p>
+  </div>
+
+  <article>
+
+    <div class="section">
+      <div class="section-label">I</div>
+      <h2>Reproducible craft</h2>
+      <p>
+        I&rsquo;m against improvisation dressed as wisdom. Against the cult of the 10x engineer whose work can&rsquo;t be transferred. Against &ldquo;best practices&rdquo; recited without context, and equally against &ldquo;it depends&rdquo; used as an escape from having a view.
+      </p>
+      <p>
+        What I&rsquo;m for is <strong>craft that survives transmission</strong>. The canonical specs exist because a spec is doctrine you can hand someone. Quartermaster exists because scaffolding shouldn&rsquo;t be an act of memory. The Engineer&rsquo;s Manual exists because what veterans know shouldn&rsquo;t die with them.
+      </p>
+      <div class="pull">
+        The opposite of reproducible craft isn&rsquo;t bad code. It&rsquo;s unrepeatable competence &mdash; the senior engineer whose value is illegible to anyone but themselves.
+      </div>
+      <p>
+        The military taught me that knowledge which can&rsquo;t be transferred to the next crew chief is a liability, not an asset. The same principle runs through everything: how you document a PR, how you onboard a contractor, how you write a commit message. If the next person can&rsquo;t pick it up and continue, the work isn&rsquo;t finished.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">II</div>
+      <h2>At thought-speed</h2>
+      <p>
+        The AI thesis, and it&rsquo;s load-bearing. I&rsquo;m not trying to skip the craft. I&rsquo;m trying to <strong>move the craft closer to thought-speed</strong>. That formulation rejects two opposite errors.
+      </p>
+      <p>
+        The first error is speed without craft &mdash; AI as a shortcut around having to actually know things. This produces fragile output and atrophied engineers. When the tool does all the providing and the human does none, you&rsquo;re not pairing, you&rsquo;re abdicating.
+      </p>
+      <p>
+        The second error is craft without speed &mdash; the romantic attachment to the friction of typing. The friction was never the point. The thinking was the point. If a tool lets you do more of the thinking and less of the typing, refusing it is a kind of vanity.
+      </p>
+      <div class="pull">
+        Keep the standards. Raise the throughput. Sandi Metz&rsquo;s rules still apply when Claude writes the code.
+      </div>
+      <p>
+        Speed handle for flight-critical systems. Power tools for throwing pots. The adjustment is to the risk profile, not the standard. Know which one you&rsquo;re holding before you start.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">III</div>
+      <h2>Carried by people who know themselves</h2>
+      <p>
+        I came to software in my late thirties after a long first career. That means I have something most engineers don&rsquo;t: a fully developed sense of who I am outside the work. I&rsquo;m not figuring out my identity through my job. The job is something I do, not something I&rsquo;m trying to become.
+      </p>
+      <p>
+        <strong>Self-knowledge is the prerequisite for every other discipline</strong>, because without it you can&rsquo;t calibrate. The engineer who can&rsquo;t tell whether they&rsquo;re stuck because the problem is hard or because they&rsquo;re tired. The manager who can&rsquo;t tell whether they&rsquo;re giving good feedback or just venting. The team that can&rsquo;t tell whether they&rsquo;re shipping fast or just shipping.
+      </p>
+      <p>
+        What I want in the people I train is a settled center. Not arrogance, not certainty &mdash; <em>center</em>. The capacity to receive hard feedback without collapsing, to push back without escalating, to take a day off without guilt, to ship something imperfect without flinching.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">IV</div>
+      <h2>Train how you fight</h2>
+      <p>
+        This is the military lens, and it&rsquo;s not metaphorical. It&rsquo;s the actual operating principle.
+      </p>
+      <p>
+        Train how you fight means: <strong>the conditions of practice should match the conditions of performance</strong>. If you practice with all pressure removed, you&rsquo;ll fail when pressure returns. If you practice solo, you&rsquo;ll fail when the team is required. If you practice with infinite time, you&rsquo;ll fail when the deadline is real.
+      </p>
+      <p>
+        The corollary: if you find yourself improvising in the moment, you didn&rsquo;t train for it. Not &ldquo;you weren&rsquo;t smart enough&rdquo; &mdash; you didn&rsquo;t train for it. The failure is upstream of the moment. This is liberating because it points to a fix.
+      </p>
+      <div class="pull">
+        Feeling-based completion is how people get killed. You call it done when it meets criteria you set before you started.
+      </div>
+      <p>
+        TDD that runs on every commit, not just before the demo. Code review standards that hold under deadline pressure, not just during the calm weeks. Documentation updated in the same PR as the change, not in a future sprint that never happens. The practice has to simulate real conditions or it isn&rsquo;t practice &mdash; it&rsquo;s rehearsal theater.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section">
+      <div class="section-label">Synthesis</div>
+      <h2>What a well-engineered organization looks like.</h2>
+      <p>It&rsquo;s also what a well-engineered life looks like. The same principles run at every scale.</p>
+
+      <div class="synthesis">
+        <h3>The operating picture</h3>
+        <ul>
+          <li><strong>Craft is transmissible, not heroic.</strong> Value compounds because it can be handed off.</li>
+          <li><strong>Speed is earned through doctrine, not stolen from quality.</strong> The rails make the speed safe.</li>
+          <li><strong>People stay calibrated under pressure</strong> because they know themselves well enough to trust their own readings.</li>
+          <li><strong>Practice conditions match performance conditions.</strong> The moment doesn&rsquo;t surprise you.</li>
+          <li><strong>The work compounds</strong> because it&rsquo;s reproducible, and the people compound because they&rsquo;re trained.</li>
+        </ul>
+      </div>
+
+      <p>
+        This is why VetMG, the writing, the Engineer&rsquo;s Manual, and the Kalkomey work feel like the same project at different scales. The through-line is reproducibility: things that work reliably, that get cheaper to change over time, that don&rsquo;t depend on any one person remembering the right incantation.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Principles</div>
+      <h2>What I actually believe.</h2>
+      <div class="principles">
+        <div class="principle">
+          <div class="p-label">On craft</div>
+          <div class="p-text"><strong>Make the change easy, then make the easy change.</strong> The order matters. Refactoring first is doctrine, not preference.</div>
+        </div>
+        <div class="principle">
+          <div class="p-label">On speed</div>
+          <div class="p-text"><strong>If you&rsquo;re reaching for the adjustable wrench out of habit when you already know the size, that&rsquo;s a smell.</strong> Automate the repeated thing. Don&rsquo;t romanticize the manual step.</div>
+        </div>
+        <div class="principle">
+          <div class="p-label">On AI tools</div>
+          <div class="p-text"><strong>Treat it like a junior engineer.</strong> Small scoped tasks. Full planning before execution. You make the load-bearing decisions. You own the output. The skill isn&rsquo;t prompting &mdash; it&rsquo;s supervision.</div>
+        </div>
+        <div class="principle">
+          <div class="p-label">On feedback</div>
+          <div class="p-text"><strong>What&rsquo;s load-bearing, what&rsquo;s decorative.</strong> Most review comments are decorative. The load-bearing ones are rare and non-negotiable. Know the difference before you open your mouth.</div>
+        </div>
+        <div class="principle">
+          <div class="p-label">On training</div>
+          <div class="p-text"><strong>Help engineers build judgment, not by dumping answers.</strong> The goal is calibration, not dependency.</div>
+        </div>
+        <div class="principle">
+          <div class="p-label">On completion</div>
+          <div class="p-text"><strong>Exit criteria set before you start.</strong> Declare status. Track unknowns. Don&rsquo;t call it done because it feels done.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="coda">
+      The Engineer&rsquo;s Manual is the closest I&rsquo;ve come to making this portable. But doctrine has to be earned. Every entry survived stress-testing. The vision works because I&rsquo;ve actually lived it &mdash; which is also why I don&rsquo;t lead with it in a profile. The doctrine without the reps is exactly the failure mode I&rsquo;m trying to prevent.
+    </p>
+
+  </article>
+
+  <footer>
+    <div>Tommy A. Caruso &middot; Louisville, KY</div>
+    <div>
+      <a href="/">Work</a> &middot;
+      <a href="https://engineers-manual.com" target="_blank">The Engineer&rsquo;s Manual</a> &middot;
+      <a href="https://github.com/tommy2118" target="_blank">GitHub</a> &middot;
+      <a href="https://linkedin.com/in/tommycaruso" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>
