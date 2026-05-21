@@ -1,414 +1,602 @@
 <!doctype html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tommy A. Caruso — Projects & Writings</title>
-    <style>
-      :root {
-        --bg: #0d1117;
-        --surface: #161b22;
-        --border: #30363d;
-        --text: #e6edf3;
-        --muted: #8b949e;
-        --accent: #58a6ff;
-        --accent-dim: #1f6feb;
-        --green: #3fb950;
-        --purple: #bc8cff;
-        --orange: #f78166;
-        --yellow: #d29922;
-      }
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-      }
-      header {
-        background: var(--surface);
-        border-bottom: 1px solid var(--border);
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-      header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem; }
-      header p { color: var(--muted); font-size: 1rem; }
-      header a { color: var(--accent); text-decoration: none; }
-      header a:hover { text-decoration: underline; }
-      nav {
-        display: flex; flex-wrap: wrap; justify-content: center;
-        gap: 0.5rem; padding: 1rem;
-        background: var(--surface);
-        border-bottom: 1px solid var(--border);
-      }
-      nav a {
-        color: var(--muted); text-decoration: none;
-        font-size: 0.875rem; padding: 0.25rem 0.75rem;
-        border-radius: 2rem; border: 1px solid var(--border);
-        transition: all 0.2s;
-      }
-      nav a:hover { color: var(--accent); border-color: var(--accent); }
-      main { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; }
-      section { margin-bottom: 3rem; }
-      section h2 {
-        font-size: 1.125rem; font-weight: 600;
-        color: var(--muted); text-transform: uppercase;
-        letter-spacing: 0.08em; margin-bottom: 1rem;
-        padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1rem;
-      }
-      .card {
-        background: var(--surface); border: 1px solid var(--border);
-        border-radius: 6px; padding: 1rem 1.25rem;
-        display: flex; flex-direction: column; gap: 0.5rem;
-        transition: border-color 0.2s;
-      }
-      .card:hover { border-color: var(--accent-dim); }
-      .card-title { font-size: 0.95rem; font-weight: 600; }
-      .card-title a { color: var(--accent); text-decoration: none; }
-      .card-title a:hover { text-decoration: underline; }
-      .card-desc { font-size: 0.85rem; color: var(--muted); flex: 1; }
-      .card-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); }
-      .tag {
-        display: inline-block; padding: 0.1rem 0.5rem;
-        border-radius: 2rem; font-size: 0.7rem; font-weight: 600; border: 1px solid;
-      }
-      .tag-writing  { color: var(--purple); border-color: var(--purple); }
-      .tag-tool     { color: var(--green);  border-color: var(--green);  }
-      .tag-app      { color: var(--accent); border-color: var(--accent); }
-      .tag-spec     { color: var(--orange); border-color: var(--orange); }
-      .tag-interactive { color: var(--yellow); border-color: var(--yellow); }
-      .lang-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
-      .lang-ruby    { background: #cc342d; }
-      .lang-js      { background: #f1e05a; }
-      .lang-ts      { background: #3178c6; }
-      .lang-html    { background: #e34c26; }
-      .lang-nunjucks{ background: #3d9970; }
-      .lang-shell   { background: #89e051; }
-      footer {
-        text-align: center; padding: 2rem 1rem;
-        color: var(--muted); font-size: 0.8rem;
-        border-top: 1px solid var(--border);
-      }
-      footer a { color: var(--accent); text-decoration: none; }
-    </style>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tommy A. Caruso</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2128;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-dim: #1f6feb;
+      --green: #3fb950;
+      --purple: #bc8cff;
+      --orange: #f78166;
+      --yellow: #e3b341;
+      --red: #ff7b72;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    <header>
-      <h1>Tommy A. Caruso</h1>
-      <p>Software engineer, writer, builder &mdash; Louisville, KY &mdash;
-        <a href="https://github.com/tommy2118" target="_blank">github.com/tommy2118</a>
-      </p>
-    </header>
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .site-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+    .site-header .role {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .site-header .role span { color: var(--text); font-weight: 500; }
 
-    <nav>
-      <a href="#writings">Writings</a>
-      <a href="#interactive">Interactive</a>
-      <a href="#tools">Tools &amp; Gems</a>
-      <a href="#specs">Specs &amp; Docs</a>
-      <a href="#apps">Applications</a>
-      <a href="#sites">Websites</a>
-      <a href="#learning">Learning</a>
-    </nav>
+    /* ── ABOUT ── */
+    .about-block {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      text-align: left;
+    }
+    .about-block p + p { margin-top: 0.75rem; }
+    .about-block strong { color: var(--text); font-weight: 600; }
 
-    <main>
+    /* ── NAV ── */
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 1rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .site-nav a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
-      <section id="writings">
+    /* ── LAYOUT ── */
+    main { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    section { margin-bottom: 3.5rem; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .section-header .section-desc {
+      font-size: 0.8rem;
+      color: var(--border);
+    }
+
+    /* ── FEATURED CARD ── */
+    .featured {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .featured-title { font-size: 1.05rem; font-weight: 600; }
+    .featured-title a { color: var(--text); }
+    .featured-title a:hover { color: var(--accent); }
+    .featured-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .featured-meta { font-size: 0.75rem; color: var(--muted); display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.25rem; }
+    .featured-url { font-size: 0.8rem; color: var(--accent-dim); font-family: monospace; }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 0.875rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.875rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--accent-dim); }
+    .card-title { font-size: 0.9rem; font-weight: 600; }
+    .card-title a { color: var(--accent); }
+    .card-desc { font-size: 0.8rem; color: var(--muted); flex: 1; line-height: 1.5; }
+    .card-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; color: var(--muted); flex-wrap: wrap; margin-top: 0.1rem; }
+
+    /* ── TAGS ── */
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.45rem;
+      border-radius: 2rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 1px solid;
+    }
+    .tag-writing   { color: var(--purple); border-color: var(--purple); }
+    .tag-tool      { color: var(--green);  border-color: var(--green);  }
+    .tag-app       { color: var(--accent); border-color: var(--accent); }
+    .tag-spec      { color: var(--orange); border-color: var(--orange); }
+    .tag-story     { color: var(--yellow); border-color: var(--yellow); }
+    .tag-reference { color: var(--red);    border-color: var(--red);    }
+    .tag-site      { color: var(--muted);  border-color: var(--border); }
+
+    /* ── LANG DOT ── */
+    .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; vertical-align: middle; }
+    .dot-ruby     { background: #cc342d; }
+    .dot-js       { background: #f1e05a; }
+    .dot-ts       { background: #3178c6; }
+    .dot-html     { background: #e34c26; }
+    .dot-njk      { background: #3d9970; }
+    .dot-shell    { background: #89e051; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      border-top: 1px solid var(--border);
+      line-height: 2;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .site-header { padding: 2rem 1rem 1.75rem; }
+      main { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Tommy A. Caruso</h1>
+    <p class="role">
+      <span>Software Engineering Manager</span> &middot; Louisville, KY &middot;
+      <a href="https://github.com/tommy2118">github.com/tommy2118</a>
+    </p>
+    <div class="about-block">
+      <p>I build primarily in <strong>Ruby and Rails</strong>, and I care about outcomes: clear intent, maintainable design, and systems that get cheaper to change over time. I lead engineering teams and show up as a right hand when leaders need one&mdash;spot bottlenecks before they become fires, leave things calmer than I found them.</p>
+      <p>My <strong>Air Force background</strong> shaped how I work: deliberate over fast, judgment over instinct, and always know your risk profile. Speed handle for flight-critical systems. Power tools for throwing pots.</p>
+      <p>The building and the writing are the same impulse. Different substrates.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <a href="#doctrine">Doctrine</a>
+    <a href="#writings">Writings</a>
+    <a href="#stories">Stories</a>
+    <a href="#tools">Tools &amp; Gems</a>
+    <a href="#vetmg">VetMG</a>
+    <a href="#apps">Applications</a>
+    <a href="#sites">Websites</a>
+    <a href="#learning">Learning</a>
+  </nav>
+
+  <main>
+
+    <!-- DOCTRINE -->
+    <section id="doctrine">
+      <div class="section-header">
+        <h2>&#9881; Doctrine &amp; Reference</h2>
+        <span class="section-desc">Field manuals. The affirmative vision made explicit.</span>
+      </div>
+
+      <div class="featured">
+        <div class="featured-title"><a href="https://engineers-manual.com" target="_blank">The Engineer's Manual</a></div>
+        <div class="featured-desc">A field reference for software engineers: scoping work, debugging methodology, collaboration, architecture vs. design decisions, and learning practices. Synthesizes practical wisdom from books, mentors, and hard-won lessons. Military format and voice&mdash;on purpose.</div>
+        <div class="featured-url">engineers-manual.com</div>
+        <div class="featured-meta">
+          <span class="tag tag-reference">Field Manual</span>
+          <span class="dot dot-njk"></span> Eleventy &middot; Tailwind CSS
+          &middot; Active since Dec 2025
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/mcp-server-security-spec" target="_blank">MCP Server Security Spec</a></div>
+          <div class="card-desc">An opinionated specification for building sound, safe, and secure MCP servers.</div>
+          <div class="card-meta"><span class="tag tag-spec">Spec</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/static_site_spec" target="_blank">Static Site Spec</a></div>
+          <div class="card-desc">Canonical spec for building static websites with Eleventy, Tailwind CSS 4, and Stimulus. MIT licensed.</div>
+          <div class="card-meta"><span class="tag tag-spec">Spec</span> <span class="dot dot-njk"></span> Nunjucks &middot; MIT</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/quartermaster-docs/" target="_blank">Quartermaster Docs</a></div>
+          <div class="card-desc">Documentation site for the Quartermaster gem, built with Quartermaster itself.</div>
+          <div class="card-meta"><span class="tag tag-spec">Docs</span> <span class="dot dot-njk"></span> Nunjucks</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/lippitt-knoster/" target="_blank">Lippitt-Knoster Model</a></div>
+          <div class="card-desc">Interactive reference for the Lippitt-Knoster model of managing complex change.</div>
+          <div class="card-meta"><span class="tag tag-reference">Reference</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WRITINGS -->
+    <section id="writings">
+      <div class="section-header">
         <h2>&#9998; Writings</h2>
-        <div class="grid">
+        <span class="section-desc">Essays. The building and the writing are the same impulse.</span>
+      </div>
 
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/between-the-fringe/" target="_blank">Between the Fringe</a></div>
-            <div class="card-desc">A literary web story by Tommy A. Caruso Sr.</div>
-            <div class="card-meta"><span class="tag tag-writing">Story</span> <span class="lang-dot lang-js"></span> JavaScript</div>
-          </div>
+      <div class="grid">
 
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/not-this-day/" target="_blank">Not This Day</a></div>
-            <div class="card-desc">A personal essay by Tommy Caruso.</div>
-            <div class="card-meta"><span class="tag tag-writing">Essay</span> <span class="lang-dot lang-nunjucks"></span> Nunjucks</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/weight-of-paper/" target="_blank">The Weight of Paper</a></div>
-            <div class="card-desc">A literary essay by Tommy A. Caruso Sr.</div>
-            <div class="card-meta"><span class="tag tag-writing">Essay</span> <span class="lang-dot lang-js"></span> JavaScript</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/between-the-fringe/" target="_blank">Between the Fringe</a></div>
+          <div class="card-desc">A literary web story by Tommy A. Caruso Sr.</div>
+          <div class="card-meta"><span class="tag tag-writing">Story</span> <span class="dot dot-js"></span> JavaScript</div>
         </div>
-      </section>
 
-      <section id="interactive">
-        <h2>&#9654; Interactive</h2>
-        <div class="grid">
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/linchpin/" target="_blank">The Linchpin</a></div>
-            <div class="card-desc">An interactive story.</div>
-            <div class="card-meta"><span class="tag tag-interactive">Story</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/lippitt-knoster/" target="_blank">Lippitt-Knoster Model</a></div>
-            <div class="card-desc">Interactive reference for the Lippitt-Knoster model of managing complex change.</div>
-            <div class="card-meta"><span class="tag tag-interactive">Reference</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/seans-checklists/" target="_blank">Sean's Checklists</a></div>
-            <div class="card-desc">Daily morning/evening checklist for Sean.</div>
-            <div class="card-meta"><span class="tag tag-interactive">Tool</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/not-this-day/" target="_blank">Not This Day</a></div>
+          <div class="card-desc">A personal essay.</div>
+          <div class="card-meta"><span class="tag tag-writing">Essay</span> <span class="dot dot-njk"></span> Nunjucks</div>
         </div>
-      </section>
 
-      <section id="tools">
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/weight-of-paper/" target="_blank">The Weight of Paper</a></div>
+          <div class="card-desc">A literary essay by Tommy A. Caruso Sr.</div>
+          <div class="card-meta"><span class="tag tag-writing">Essay</span> <span class="dot dot-js"></span> JavaScript</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/what-nail" target="_blank">What Nail</a></div>
+          <div class="card-desc">A short essay on listening, in web form.</div>
+          <div class="card-meta"><span class="tag tag-writing">Essay</span> <span class="dot dot-njk"></span> Nunjucks</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STORIES & FICTION -->
+    <section id="stories">
+      <div class="section-header">
+        <h2>&#9654; Stories &amp; Interactive</h2>
+        <span class="section-desc">Narrative work with a software architecture underneath.</span>
+      </div>
+
+      <div class="featured">
+        <div class="featured-title"><a href="https://nightloom-stories.com" target="_blank">Nightloom Stories</a></div>
+        <div class="featured-desc">Nightly serialized AI fiction where reader signals shape pacing and tone, while a story bible and quality gates protect the narrative. No retcons. No character drift. Every chapter remembers what came before.</div>
+        <div class="featured-url">nightloom-stories.com</div>
+        <div class="featured-meta">
+          <span class="tag tag-story">Serial Fiction</span>
+          <span class="dot dot-ruby"></span> Rails &middot; Active
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/linchpin/" target="_blank">The Linchpin</a></div>
+          <div class="card-desc">An interactive story.</div>
+          <div class="card-meta"><span class="tag tag-story">Interactive</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/seans-checklists/" target="_blank">Sean's Checklists</a></div>
+          <div class="card-desc">Daily morning/evening checklist for Sean.</div>
+          <div class="card-meta"><span class="tag tag-app">Tool</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TOOLS & GEMS -->
+    <section id="tools">
+      <div class="section-header">
         <h2>&#128296; Tools &amp; Open Source</h2>
-        <div class="grid">
+        <span class="section-desc">Things built to stop doing the same manual work twice.</span>
+      </div>
 
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/quartermaster" target="_blank">Quartermaster</a></div>
-            <div class="card-desc">Provision static websites and Rails applications from a canonical specification. MIT licensed Ruby gem.</div>
-            <div class="card-meta"><span class="tag tag-tool">Gem</span> <span class="lang-dot lang-ruby"></span> Ruby &mdash; MIT</div>
-          </div>
+      <div class="grid">
 
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/rails-migration-guard" target="_blank">Rails Migration Guard</a></div>
-            <div class="card-desc">Prevent orphaned Rails migrations in development and staging environments.</div>
-            <div class="card-meta"><span class="tag tag-tool">Gem</span> <span class="lang-dot lang-ruby"></span> Ruby &mdash; MIT</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/dorm-guard" target="_blank">Dorm Guard</a></div>
-            <div class="card-desc">Production-grade uptime monitoring, built in the open with AI pair programming.</div>
-            <div class="card-meta"><span class="tag tag-tool">Monitor</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/mcp-server-security-spec" target="_blank">MCP Server Security Spec</a></div>
-            <div class="card-desc">An opinionated specification for building sound, safe, and secure MCP servers.</div>
-            <div class="card-meta"><span class="tag tag-spec">Spec</span></div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/vpn-automation" target="_blank">VPN Automation</a></div>
-            <div class="card-desc">Shell scripts for VPN automation tasks.</div>
-            <div class="card-meta"><span class="tag tag-tool">Script</span> <span class="lang-dot lang-shell"></span> Shell</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/quartermaster" target="_blank">Quartermaster</a></div>
+          <div class="card-desc">Provision static websites and Rails applications from a canonical specification. MIT licensed Ruby gem.</div>
+          <div class="card-meta"><span class="tag tag-tool">Gem</span> <span class="dot dot-ruby"></span> Ruby &middot; MIT</div>
         </div>
-      </section>
 
-      <section id="specs">
-        <h2>&#128196; Specs &amp; Documentation</h2>
-        <div class="grid">
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/static_site_spec" target="_blank">Static Site Spec</a></div>
-            <div class="card-desc">Canonical specification for building static websites with Eleventy, Tailwind CSS 4, and Stimulus. MIT licensed.</div>
-            <div class="card-meta"><span class="tag tag-spec">Spec</span> <span class="lang-dot lang-nunjucks"></span> Nunjucks &mdash; MIT</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/quartermaster-docs/" target="_blank">Quartermaster Docs</a></div>
-            <div class="card-desc">Documentation site for the Quartermaster gem, built with Quartermaster itself.</div>
-            <div class="card-meta"><span class="tag tag-spec">Docs</span> <span class="lang-dot lang-nunjucks"></span> Nunjucks</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/rails-migration-guard" target="_blank">Rails Migration Guard</a></div>
+          <div class="card-desc">Prevent orphaned Rails migrations in development and staging environments.</div>
+          <div class="card-meta"><span class="tag tag-tool">Gem</span> <span class="dot dot-ruby"></span> Ruby &middot; MIT</div>
         </div>
-      </section>
 
-      <section id="apps">
-        <h2>&#9881; Applications</h2>
-        <div class="grid">
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/black_rabbit" target="_blank">Black Rabbit</a></div>
-            <div class="card-desc">TypeScript application.</div>
-            <div class="card-meta"><span class="tag tag-app">App</span> <span class="lang-dot lang-ts"></span> TypeScript</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/tcf-platform" target="_blank">TCF Platform</a></div>
-            <div class="card-desc">Tiny Code Factory platform. MIT licensed.</div>
-            <div class="card-meta"><span class="tag tag-app">Platform</span> <span class="lang-dot lang-ruby"></span> Ruby &mdash; MIT</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/mini-me" target="_blank">Mini Me</a></div>
-            <div class="card-desc">Web application built with TCF. MIT licensed.</div>
-            <div class="card-meta"><span class="tag tag-app">App</span></div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/migration-guard-test-app" target="_blank">Migration Guard Test App</a></div>
-            <div class="card-desc">Test application for the rails-migration-guard gem.</div>
-            <div class="card-meta"><span class="tag tag-app">Test App</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/rbio_demo" target="_blank">Rbio Demo</a></div>
-            <div class="card-desc">Demo application.</div>
-            <div class="card-meta"><span class="tag tag-app">Demo</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/dorm-guard" target="_blank">Dorm Guard</a></div>
+          <div class="card-desc">Production-grade uptime monitoring, built in the open with AI pair programming.</div>
+          <div class="card-meta"><span class="tag tag-tool">Monitor</span> <span class="dot dot-ruby"></span> Ruby</div>
         </div>
-      </section>
 
-      <section id="sites">
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/vpn-automation" target="_blank">VPN Automation</a></div>
+          <div class="card-desc">Shell scripts for VPN automation tasks.</div>
+          <div class="card-meta"><span class="tag tag-tool">Script</span> <span class="dot dot-shell"></span> Shell</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VETMG -->
+    <section id="vetmg">
+      <div class="section-header">
+        <h2>&#128188; VetMG Media</h2>
+        <span class="section-desc">The base layer. Running since 2014, in parallel with everything else.</span>
+      </div>
+
+      <div class="featured">
+        <div class="featured-title"><a href="https://vetmgmedia.com" target="_blank">VetMG Media LLC</a></div>
+        <div class="featured-desc">We make contractors financing-ready. Most residential contractors lose high-ticket jobs because they don&rsquo;t qualify for customer financing programs&mdash;lenders require a professional web presence. VetMG builds financing-ready websites that meet lender requirements, and you own them outright. No subscriptions. No lock-in. Veteran-owned. Contractor-focused.</div>
+        <div class="featured-url">vetmgmedia.com</div>
+        <div class="featured-meta">
+          <span class="tag tag-app">Veteran-Owned Business</span>
+          &middot; Founded Jul 2014 &middot; Louisville, KY
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-title"><a href="https://engineers-manual.com" target="_blank">The Engineer's Manual</a></div>
+          <div class="card-desc">A field reference for software engineers. Military format and voice, on purpose. Published under VetMG.</div>
+          <div class="card-meta"><span class="tag tag-reference">Field Manual</span> <span class="dot dot-njk"></span> Eleventy</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/the_dbt_resource" target="_blank">The DBT Resource</a></div>
+          <div class="card-desc">Open-source platform making Dialectical Behavior Therapy skills accessible: emotional regulation, mindfulness, interpersonal effectiveness, distress tolerance. Not a portfolio piece.</div>
+          <div class="card-meta"><span class="tag tag-app">Wellness</span> <span class="dot dot-html"></span> HTML &middot; Open Source</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APPLICATIONS -->
+    <section id="apps">
+      <div class="section-header">
+        <h2>&#9874; Applications</h2>
+        <span class="section-desc">Larger builds. Some public, some not.</span>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/black_rabbit" target="_blank">Black Rabbit</a></div>
+          <div class="card-desc">TypeScript application.</div>
+          <div class="card-meta"><span class="tag tag-app">App</span> <span class="dot dot-ts"></span> TypeScript</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/tcf-platform" target="_blank">TCF Platform</a></div>
+          <div class="card-desc">Tiny Code Factory platform. MIT licensed.</div>
+          <div class="card-meta"><span class="tag tag-app">Platform</span> <span class="dot dot-ruby"></span> Ruby &middot; MIT</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/mini-me" target="_blank">Mini Me</a></div>
+          <div class="card-desc">Web application built with TCF. MIT licensed.</div>
+          <div class="card-meta"><span class="tag tag-app">App</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/migration-guard-test-app" target="_blank">Migration Guard Test App</a></div>
+          <div class="card-desc">Reference application for the rails-migration-guard gem.</div>
+          <div class="card-meta"><span class="tag tag-app">Test App</span> <span class="dot dot-ruby"></span> Ruby</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/rbio_demo" target="_blank">Rbio Demo</a></div>
+          <div class="card-desc">Demo application.</div>
+          <div class="card-meta"><span class="tag tag-app">Demo</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WEBSITES -->
+    <section id="sites">
+      <div class="section-header">
         <h2>&#127760; Websites</h2>
-        <div class="grid">
+        <span class="section-desc">Client and personal static sites.</span>
+      </div>
 
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/lytle-website/" target="_blank">Lytle Website</a></div>
-            <div class="card-desc">Public static site.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-nunjucks"></span> Nunjucks</div>
-          </div>
+      <div class="grid">
 
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/adroit-services/" target="_blank">Adroit Services</a></div>
-            <div class="card-desc">Adroit services website.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-nunjucks"></span> Nunjucks</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/nomad-theater-company/" target="_blank">Nomad Theater Company</a></div>
-            <div class="card-desc">Website for Nomad Theater Company.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-nunjucks"></span> Nunjucks</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/customcraftsmandesign/" target="_blank">Custom Craftsman Design</a></div>
-            <div class="card-desc">CC Design website.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/singularity_forge/" target="_blank">Singularity Forge</a></div>
-            <div class="card-desc">Public site.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/landscaping-website/" target="_blank">Landscaping Website</a></div>
-            <div class="card-desc">Static landscaping business site.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span></div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/vim-tmux-website/" target="_blank">Vim + Tmux Website</a></div>
-            <div class="card-desc">Reference site about Vim and Tmux workflow.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/tjandjewel/" target="_blank">TJ &amp; Jewel</a></div>
-            <div class="card-desc">Personal/family website.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/quiet-spark/" target="_blank">Quiet Spark</a></div>
-            <div class="card-desc">Public site.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/valor/" target="_blank">Valor</a></div>
-            <div class="card-desc">Public site.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/super_pair/" target="_blank">Super Pair</a></div>
-            <div class="card-desc">Public site.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/kalkomey-onboarding/" target="_blank">Kalkomey Onboarding</a></div>
-            <div class="card-desc">Onboarding resource for Kalkomey.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/teamsnap-onboarding/" target="_blank">TeamSnap Onboarding</a></div>
-            <div class="card-desc">Onboarding resource for TeamSnap.</div>
-            <div class="card-meta"><span class="tag tag-app">Site</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/prototype_peptide_tracker/" target="_blank">Peptide Tracker</a></div>
-            <div class="card-desc">Prototype peptide tracking application.</div>
-            <div class="card-meta"><span class="tag tag-app">Prototype</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/adroit-services/" target="_blank">Adroit Services</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-njk"></span> Nunjucks</div>
         </div>
-      </section>
 
-      <section id="learning">
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/nomad-theater-company/" target="_blank">Nomad Theater Company</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-njk"></span> Nunjucks</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/customcraftsmandesign/" target="_blank">Custom Craftsman Design</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/lytle-website/" target="_blank">Lytle Website</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-njk"></span> Nunjucks</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/landscaping-website/" target="_blank">Landscaping Website</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/vim-tmux-website/" target="_blank">Vim + Tmux Website</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/tjandjewel/" target="_blank">TJ &amp; Jewel</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/quiet-spark/" target="_blank">Quiet Spark</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/valor/" target="_blank">Valor</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/singularity_forge/" target="_blank">Singularity Forge</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/super_pair/" target="_blank">Super Pair</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/kalkomey-onboarding/" target="_blank">Kalkomey Onboarding</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/teamsnap-onboarding/" target="_blank">TeamSnap Onboarding</a></div>
+          <div class="card-meta"><span class="tag tag-site">Site</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/prototype_peptide_tracker/" target="_blank">Peptide Tracker</a></div>
+          <div class="card-meta"><span class="tag tag-site">Prototype</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEARNING -->
+    <section id="learning">
+      <div class="section-header">
         <h2>&#127891; Learning &amp; Exercises</h2>
-        <div class="grid">
+        <span class="section-desc">The work you do before the work matters.</span>
+      </div>
 
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/recommender" target="_blank">Recommender</a></div>
-            <div class="card-desc">Collaboration filter implemented in Ruby.</div>
-            <div class="card-meta"><span class="tag tag-tool">Algorithm</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
+      <div class="grid">
 
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/game_of_life" target="_blank">Game of Life</a></div>
-            <div class="card-desc">Conway's Game of Life in Ruby.</div>
-            <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/meal_planner" target="_blank">Meal Planner</a></div>
-            <div class="card-desc">Meal planning Ruby application.</div>
-            <div class="card-meta"><span class="tag tag-tool">App</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/scratch" target="_blank">Scratch</a></div>
-            <div class="card-desc">General scratch pad and experiments in Ruby. MIT licensed.</div>
-            <div class="card-meta"><span class="tag tag-tool">Experiments</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/google_homepage/" target="_blank">Google Homepage</a></div>
-            <div class="card-desc">HTML/CSS project from The Odin Project.</div>
-            <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://github.com/tommy2118/twister-spinner" target="_blank">Twister Spinner</a></div>
-            <div class="card-desc">Simple spinner for the game Twister, in Ruby.</div>
-            <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="lang-dot lang-ruby"></span> Ruby</div>
-          </div>
-
-          <div class="card">
-            <div class="card-title"><a href="https://tommy2118.github.io/composition/" target="_blank">Composition</a></div>
-            <div class="card-desc">HTML composition reference.</div>
-            <div class="card-meta"><span class="tag tag-tool">Reference</span> <span class="lang-dot lang-html"></span> HTML</div>
-          </div>
-
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/recommender" target="_blank">Recommender</a></div>
+          <div class="card-desc">Collaboration filter in Ruby.</div>
+          <div class="card-meta"><span class="tag tag-tool">Algorithm</span> <span class="dot dot-ruby"></span> Ruby</div>
         </div>
-      </section>
 
-    </main>
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/game_of_life" target="_blank">Game of Life</a></div>
+          <div class="card-desc">Conway's Game of Life in Ruby.</div>
+          <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="dot dot-ruby"></span> Ruby</div>
+        </div>
 
-    <footer>
-      <p>Tommy A. Caruso &mdash; Louisville, KY &mdash;
-        <a href="https://github.com/tommy2118" target="_blank">GitHub</a>
-      </p>
-    </footer>
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/meal_planner" target="_blank">Meal Planner</a></div>
+          <div class="card-desc">Meal planning Ruby application.</div>
+          <div class="card-meta"><span class="tag tag-tool">App</span> <span class="dot dot-ruby"></span> Ruby</div>
+        </div>
 
-  </body>
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/scratch" target="_blank">Scratch</a></div>
+          <div class="card-desc">General scratch pad and experiments. MIT licensed.</div>
+          <div class="card-meta"><span class="tag tag-tool">Experiments</span> <span class="dot dot-ruby"></span> Ruby</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/google_homepage/" target="_blank">Google Homepage</a></div>
+          <div class="card-desc">HTML/CSS project from The Odin Project.</div>
+          <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://github.com/tommy2118/twister-spinner" target="_blank">Twister Spinner</a></div>
+          <div class="card-desc">Simple spinner for the game Twister.</div>
+          <div class="card-meta"><span class="tag tag-tool">Exercise</span> <span class="dot dot-ruby"></span> Ruby</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><a href="https://tommy2118.github.io/composition/" target="_blank">Composition</a></div>
+          <div class="card-desc">HTML composition reference.</div>
+          <div class="card-meta"><span class="tag tag-tool">Reference</span> <span class="dot dot-html"></span> HTML</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>Tommy A. Caruso &middot; Louisville, KY</div>
+    <div>
+      <a href="https://github.com/tommy2118">GitHub</a> &middot;
+      <a href="https://linkedin.com/in/tommycaruso">LinkedIn</a> &middot;
+      <a href="https://engineers-manual.com">The Engineer's Manual</a>
+    </div>
+  </footer>
+
+</body>
 </html>
